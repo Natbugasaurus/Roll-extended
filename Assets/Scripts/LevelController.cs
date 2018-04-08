@@ -13,7 +13,7 @@ public class LevelController : MonoBehaviour {
 	}
 		
 	void Update () {
-        rotateDirection = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
+        rotateDirection = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
 		rotateDirection *= rotateSpeed;
 		//rotateDirection = Camera.main.transform.rotation * rotateDirection;
 
