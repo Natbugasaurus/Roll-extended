@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
 		offset = transform.position - target.transform.position;
 	}
 		
-	void Update () { 
+	void Update () {
         /*
 		x += Input.GetAxis ("Mouse X") * rotateSpeed;
 
@@ -28,12 +28,13 @@ public class CameraController : MonoBehaviour {
 			y -= Input.GetAxis ("Mouse Y") * rotateSpeed;
 		}
         */
-		y = Mathf.Clamp (y, yMin, yMax);
+
+        y = Mathf.Clamp (y, yMin, yMax);
 
 		Quaternion rotation = Quaternion.Euler (y, x, 0);
 		transform.rotation = rotation;
 
-		transform.position = Vector3.Lerp(transform.position, rotation * offset + target.transform.position, 0.08f);
+		transform.position = Vector3.Lerp(transform.position, rotation * offset + target.transform.position, 1f);
 		transform.LookAt(target);
 	}
 }

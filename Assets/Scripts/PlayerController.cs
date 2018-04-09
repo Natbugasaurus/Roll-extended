@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public ParticleSystem system;
 	public Rigidbody rb;
 
+    private bool canJump = false;
+
 	public int thrust;
 
 	// Use this for initialization
@@ -17,8 +19,11 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKeyDown("space") && canJump) {
+            rb.AddForce(Vector3.up * thrust);
+            canJump = false;
+        }
+    }
 
 	void OnCollisionEnter(Collision collision) {
 		foreach (ContactPoint contact in collision.contacts) {
@@ -30,8 +35,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionStay(Collision collision) {
-		if (Input.GetKeyDown ("space")) {
-			rb.AddForce (Vector3.up * thrust);
-		}
+        canJump = true;
 	}
 }
