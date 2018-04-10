@@ -6,6 +6,7 @@ public class LeaveWorld : MonoBehaviour {
 
 	//public GameObject player;
 	public Transform level;
+    private Rigidbody otherRB;
 
 	void start () {
 
@@ -14,5 +15,7 @@ public class LeaveWorld : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 		other.transform.position = new Vector3(0,0,0);
 		level.transform.rotation =  Quaternion.identity;
-	}
+        other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        other.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    }
 }
