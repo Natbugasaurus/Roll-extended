@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    public GameObject[] levelsList;
-    public int currentLevel;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -14,12 +11,10 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKey(KeyCode.Space)) {
+            Time.timeScale = 0.5f;
+        } else {
+            Time.timeScale = 1f;
+        }
 	}
-
-    public void NextLevel () {
-		levelsList [currentLevel].gameObject.SetActive (false);
-		currentLevel += 1;
-		levelsList [currentLevel].gameObject.SetActive (true);
-    }
 }
