@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour {
 
+    public Transform player;
+
 	public float rotateSpeedX;
     public float rotateSpeedZ;
 
@@ -25,6 +27,8 @@ public class LevelController : MonoBehaviour {
         rotateDirection = rotateDirectionX + rotateDirectionZ;
 
         transform.Rotate(rotateDirection);
+
+        //transform.RotateAround(player.transform.position, rotateDirection, 1);
 
         //I GUESS THIS IS FINE
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 0.03f);
