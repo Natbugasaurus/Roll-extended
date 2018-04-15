@@ -19,18 +19,22 @@ public class LevelController : MonoBehaviour {
 	}
 		
 	void Update () {
-        //ROTATION CONTROLS
+        //Rotation controls
+        //Get individual axis
         rotateDirectionX = new Vector3(Input.GetAxis("Vertical"), 0, 0);
         rotateDirectionZ = new Vector3(0, 0, -Input.GetAxis("Horizontal"));
+        //Adjust by seperate rotation speeds
         rotateDirectionX *= rotateSpeedX;
         rotateDirectionZ *= rotateSpeedZ;
+
+        //Combine
         rotateDirection = rotateDirectionX + rotateDirectionZ;
 
+        //Apply rotation
         transform.Rotate(rotateDirection);
 
-        //transform.RotateAround(player.transform.position, rotateDirection, 1);
-
-        //I GUESS THIS IS FINE
+        //Lerp back to original positon
+        //Also serves as a clamp when lerp amount is higher than rotation speed
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 0.03f);
     }
 }

@@ -7,14 +7,16 @@ public class GameController : MonoBehaviour {
 
     public GameObject textOne, textTwo;
 
-    private bool slowTime = false;
-	// Use this for initialization
+    //private bool slowTime = false;
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
+        //Experimenting with a time slow ability
+        /*
         if (Input.GetKeyDown(KeyCode.Space)) {
             //slowTime = !slowTime;
         }
@@ -24,7 +26,10 @@ public class GameController : MonoBehaviour {
         } else {
             Time.timeScale = 1f;
         }
+        */
 
+        //Fade start text when player starts playing
+        //Code by LeftyRighty - https://forum.unity.com/threads/fading-in-out-gui-text-with-c-solved.380822/
         if (Input.GetKeyDown(KeyCode.W)) {
             StartCoroutine(FadeDown(2.5f, textOne.GetComponent<Text>()));
             StartCoroutine(FadeDown(2.5f, textTwo.GetComponent<Text>()));

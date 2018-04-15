@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    //Play clink sound when hitting level
 	void OnCollisionEnter(Collision collision) {
         soundSource.PlayOneShot(clink, 1f);
 	}
